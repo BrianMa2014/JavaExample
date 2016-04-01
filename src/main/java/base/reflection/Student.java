@@ -31,7 +31,10 @@ public class Student {
         this.name = name;
     }
 
-    private void testPrivate(){
-
+    private void testPrivate(String str){
+        System.out.println("调用了testPrivate方法..." + str);
+    }
+    private void info(){
+        System.out.println(this.getName());
     }
 }
