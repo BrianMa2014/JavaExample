@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 
 /**
  * Created by MaMingJiang on 2016/4/1.
+ * tutorial site :https://www.douban.com/note/306848299/
  */
 public class ReflectionTest {
     @Test
@@ -63,4 +64,55 @@ public class ReflectionTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testGetPackageName(){
+        //获取指定类的包名
+        Class clazz = Student.class;
+        String packageName = clazz.getPackage().getName();
+        ReflectionUtils.print(packageName);
+    }
+    @Test
+    public void testGetClassName(){
+        //获取指定类的完全限定名
+        Class clazz = Student.class;
+        String className = clazz.getName();
+        ReflectionUtils.print(className);
+    }
+
+    @Test
+    public void testGetSupperClass(){
+        //获取指定类父类的完全限定名
+        Class clazz = Student.class;
+        String className = clazz.getSuperclass().getName();
+        ReflectionUtils.print(className);
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testGetModifiers(){
+        Class clazz = Student.class;
+        int modifiers = clazz.getModifiers();
+        //getModifiers方法返回修饰符对应的Value之和
+        //___________________________________________________________________________________________
+        // Flag Name	 |   Value	|  Interpretation                                               |
+        // -----------------------------------------------------------------------------------------|                                                 |
+        // ACC_PRIVATE   |	0x0002	|  Declared private; accessible only within the defining class. |
+        // ACC_PROTECTED |	0x0004	|  Declared protected; may be accessed within subclasses.       |
+        // ACC_STATIC    |	0x0008	|  Declared static.                                             |
+        // ACC_NATIVE    |	0x0100	|  Declared native; implemented in a language other than Java.  |                                          |
+        //__________________________________________________________________________________________|
+        ReflectionUtils.print("获取的类的modifiers..."+String.valueOf(modifiers));
+        try {
+//            Method method = clazz.getDeclaredMethod("info2");
+            //***public native int hashCode();***** getModifiers方法的结果是257
+            Method method = clazz.getMethod("hashCode");
+            int mod = method.getModifiers();
+            ReflectionUtils.print("获取方法的modifiers..."+String.valueOf(mod));
+        }catch(NoSuchMethodException e){
+            e.printStackTrace();
+        }
+    }
+
+
 }

@@ -37,4 +37,7 @@ public class Student {
     private void info(){
         System.out.println(this.getName());
     }
+
+    private static void info2(){
+    }
 }
