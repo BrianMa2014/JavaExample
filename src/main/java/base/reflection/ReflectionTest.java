@@ -3,10 +3,7 @@ package base.reflection;
 import org.testng.annotations.Test;
 import org.testng.internal.ConstructorOrMethod;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
 
 /**
  * Created by MaMingJiang on 2016/4/1.
@@ -147,11 +144,34 @@ public class ReflectionTest {
         }
     }
 
+    @Test
+    public void testArray(){
+        //Array是java.lang.reflect包下提供的，用于动态的创建数组和操作数组元素
+        //创建一个数组实例
+        Object object = Array.newInstance(int.class,5);
+        //set(Object array, int index, Object value)
+        Array.set(object,0,90);
+        Array.set(object,1,96);
+        ReflectionUtils.print(Array.get(object,0));
+        ReflectionUtils.print(Array.get(object,1));
 
+        Class clazz = Student.class;
+        Student stu = new Student(25,"brian");
+        try {
+            Field field = clazz.getDeclaredField("scores");
+            field.setAccessible(true);
+            try {
+                //设置stu对象的scores成员变量值为使用Array动态创建的数组的值
+                field.set(stu,object);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
 
-
-
-
-
+            ReflectionUtils.print(field.getName());
+            ReflectionUtils.print(stu.getName()+" "+stu.getAge()+" "+stu.getScores()[1]);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -6,6 +6,7 @@ package base.reflection;
 public class Student {
     private int age;
     private String name;
+    private int[] scores;
 
     public Student() {
     }
@@ -29,6 +30,14 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int[] getScores() {
+        return scores;
+    }
+
+    public void setScores(int[] scores) {
+        this.scores = scores;
     }
 
     private void testPrivate(String str){
