@@ -1,7 +1,10 @@
 package base.reflection;
 
 import org.testng.annotations.Test;
+import org.testng.internal.ConstructorOrMethod;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -50,7 +53,7 @@ public class ReflectionTest {
     }
     @Test
     @SuppressWarnings("unchecked")
-    public void test3(){
+    public void testInvokeMethod(){
         try {
             Class stu = Student.class;
             Method method2 = stu.getDeclaredMethod("info");
@@ -113,6 +116,42 @@ public class ReflectionTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testConstructor() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Class<Student> clazz = Student.class;
+        Constructor[] constructors = clazz.getConstructors();
+        //获取Student类所有的构造函数并打印
+        for(Constructor constructor : constructors){
+            ReflectionUtils.print(constructor.getName());
+        }
+        //获取无参的构造函数并新建对象，打印对象的值
+        Constructor ctor = clazz.getDeclaredConstructor();
+        Student stu = (Student)ctor.newInstance();
+        ReflectionUtils.print(stu.getName() + "   " + stu.getAge());
+
+        //获取有参数的构造函数,并创建对象,打印对象的值 int.class 和Integer.class不一样
+        Constructor<Student> ctor1 = clazz.getDeclaredConstructor(int.class, String.class);
+        Student brian = ctor1.newInstance(3,"Brian");
+        ReflectionUtils.print(brian.getName()+  "    " + brian.getAge());
+
+
+    }
+
+    @Test
+    public void testField(){
+        Class clazz = Student.class;
+        Field[] fields = clazz.getDeclaredFields();
+        for(Field field : fields){
+            ReflectionUtils.print(field.getName());
+        }
+    }
+
+
+
+
+
+
 
 
 }
