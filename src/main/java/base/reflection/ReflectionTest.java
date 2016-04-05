@@ -1,7 +1,6 @@
 package base.reflection;
 
 import org.testng.annotations.Test;
-import org.testng.internal.ConstructorOrMethod;
 
 import java.lang.reflect.*;
 
@@ -32,11 +31,18 @@ public class ReflectionTest {
     }
     @Test
     @SuppressWarnings("unchecked")
-    public void test2(){
+    public void testGetMethod(){
         try {
             Class stu = Student.class;
             //指明方法名和方法参数类型
             Method method = stu.getDeclaredMethod("testPrivate",String.class);
+            Class returnType = method.getReturnType();
+            ReflectionUtils.print("returnType:"+returnType.getName());
+
+            Class[] paraTypes= method.getParameterTypes();
+            for(Class paraType : paraTypes){
+                ReflectionUtils.print("参数类型："+paraType.getName());
+            }
             //调用私有方法需要setAccessible
             method.setAccessible(true);
 
@@ -89,6 +95,16 @@ public class ReflectionTest {
     }
 
     @Test
+    public void testGetInterfaces(){
+        //获取指定类实现的接口
+        Class clazz = Student.class;
+        Class[] interfaces = clazz.getInterfaces();
+        for(Class inter : interfaces){
+            ReflectionUtils.print(inter.getName());
+        }
+    }
+
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetModifiers(){
         Class clazz = Student.class;
@@ -120,7 +136,12 @@ public class ReflectionTest {
         Constructor[] constructors = clazz.getConstructors();
         //获取Student类所有的构造函数并打印
         for(Constructor constructor : constructors){
-            ReflectionUtils.print(constructor.getName());
+            ReflectionUtils.print("获取构造器的名字："+constructor.getName());
+            Class[] paratypes = constructor.getParameterTypes();
+            for(Class paratype : paratypes) {
+                ReflectionUtils.print("获取构造器的参数类型：" +paratype.getName());
+            }
+            ReflectionUtils.print("***********************");
         }
         //获取无参的构造函数并新建对象，打印对象的值
         Constructor ctor = clazz.getDeclaredConstructor();
@@ -129,7 +150,7 @@ public class ReflectionTest {
 
         //获取有参数的构造函数,并创建对象,打印对象的值 int.class 和Integer.class不一样
         Constructor<Student> ctor1 = clazz.getDeclaredConstructor(int.class, String.class);
-        Student brian = ctor1.newInstance(3,"Brian");
+        Student brian = ctor1.newInstance(3, "Brian");
         ReflectionUtils.print(brian.getName()+  "    " + brian.getAge());
 
 
@@ -140,7 +161,13 @@ public class ReflectionTest {
         Class clazz = Student.class;
         Field[] fields = clazz.getDeclaredFields();
         for(Field field : fields){
-            ReflectionUtils.print(field.getName());
+            //如果field是数组类型，此处getType().getName()获取的结果是[I
+            ReflectionUtils.print(field.getName()+"  "+field.getType().getName());
+            if(field.getType().isArray()){
+                //如果是数组,可以使用getComponent()获取数组的类型
+                Class type = field.getType();
+                ReflectionUtils.print("componentType:" + type.getComponentType().getName());
+            }
         }
     }
 

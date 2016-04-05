@@ -1,9 +1,11 @@
 package base.reflection;
 
+import java.io.Serializable;
+
 /**
  * Created by MaMingJiang on 2016/4/1.
  */
-public class Student {
+public class Student implements Serializable {
     private int age;
     private String name;
     private int[] scores;
@@ -14,6 +16,12 @@ public class Student {
     public Student(int age, String name) {
         this.age = age;
         this.name = name;
+    }
+
+    public Student(int age, String name, int[] scores) {
+        this.age = age;
+        this.name = name;
+        this.scores = scores;
     }
 
     public int getAge() {
