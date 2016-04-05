@@ -182,6 +182,7 @@ public class ReflectionTest {
         ReflectionUtils.print(Array.get(object,0));
         ReflectionUtils.print(Array.get(object,1));
 
+
         Class clazz = Student.class;
         Student stu = new Student(25,"brian");
         try {
