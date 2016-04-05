@@ -1,4 +1,4 @@
-package advanced.proxy;
+package advanced.proxy.proxy;
 
 import base.reflection.ReflectionUtils;
 

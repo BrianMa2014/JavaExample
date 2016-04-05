@@ -1,4 +1,4 @@
-package advanced.proxy;
+package advanced.proxy.proxy;
 
 /**
  * Created by mamingjiang on 2016/4/4.
