@@ -2,7 +2,9 @@ package base.reflection;
 
 import org.testng.annotations.Test;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -52,5 +54,27 @@ public class ProductionMain {
             count++;
         }
         System.out.println("Product类共有方法："+count);
+    }
+
+    @Test
+    public void test02() throws IllegalAccessException, InvocationTargetException, InstantiationException {
+        Class clazz = Product.class;
+        Constructor[] constructors = clazz.getDeclaredConstructors();
+        for(Constructor ctor : constructors){
+            System.out.println(ctor.getName());
+            //使用默认构造器创建对象
+            Class[] paratypes = ctor.getParameterTypes();
+            if(paratypes.length == 0) {
+                Product prod = (Product) ctor.newInstance();
+                System.out.println("产品名称："+prod.getName()+",产品价格："+prod.getPrice());
+            }else{
+                //使用有参数的构造器穿件对象
+                Product prod = (Product) ctor.newInstance("name","100.00");
+                System.out.println("产品名称："+prod.getName()+",产品价格："+prod.getPrice());
+            }
+        }
+
+
+
     }
 }
