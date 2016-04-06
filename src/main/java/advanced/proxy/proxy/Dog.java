@@ -1,6 +1,6 @@
 package advanced.proxy.proxy;
 
-import base.reflection.ReflectionUtils;
+import base.reflection.reflection.ReflectionUtils;
 
 /**
  * Created by mamingjiang on 2016/4/4.
