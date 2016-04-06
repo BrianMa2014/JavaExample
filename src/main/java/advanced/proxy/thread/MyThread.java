@@ -11,6 +11,7 @@ public class MyThread extends Thread{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("MyThread线程name:"+Thread.currentThread().getName());
         System.out.println("MyThread run !");
     }
 }

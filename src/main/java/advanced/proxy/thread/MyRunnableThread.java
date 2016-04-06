@@ -7,5 +7,6 @@ public class MyRunnableThread implements Runnable {
     @Override
     public void run() {
         System.out.println("MyRunnableThread run !!!");
+        System.out.println("MyRunnableThread线程name:"+Thread.currentThread().getName());
     }
 }
