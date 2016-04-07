@@ -60,6 +60,7 @@ abstract class Person{
     public abstract void say();
 }
 
+
 interface Animal{
      abstract void run();
 }
