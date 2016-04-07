@@ -56,6 +56,7 @@ public class AnonymousInnerClass {
     }
 
 }
+
 abstract class Person{
     public abstract void say();
 }
