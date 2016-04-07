@@ -54,7 +54,6 @@ public class AnonymousInnerClass {
         Thread thread = new Thread(thread2);
         thread.start();
     }
-
 }
 
 abstract class Person{
