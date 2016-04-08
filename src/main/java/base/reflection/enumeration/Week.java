@@ -5,5 +5,6 @@ package base.reflection.enumeration;
  */
 public enum Week {
     MON,TUE,WED,THR,FRI,SAT,SUN  //可以不加分号；
+
 }
 
