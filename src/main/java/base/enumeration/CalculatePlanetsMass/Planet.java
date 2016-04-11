@@ -1,4 +1,4 @@
-package base.reflection.enumeration.CalculatePlanetsMass;
+package base.enumeration.CalculatePlanetsMass;
 
 /**
  * Created by MaMingJiang on 2016/4/8.
