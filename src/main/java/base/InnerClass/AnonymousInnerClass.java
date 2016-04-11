@@ -1,4 +1,4 @@
-package base.reflection.InnerClass;
+package base.InnerClass;
 
 /**
  * Created by MaMingJiang on 2016/4/7.

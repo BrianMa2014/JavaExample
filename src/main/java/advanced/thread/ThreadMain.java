@@ -1,4 +1,4 @@
-package advanced.proxy.thread;
+package advanced.thread;
 
 
 import org.testng.annotations.Test;

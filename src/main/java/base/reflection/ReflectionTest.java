@@ -1,4 +1,4 @@
-package base.reflection.reflection;
+package base.reflection;
 
 import org.testng.annotations.Test;
 
@@ -37,7 +37,7 @@ public class ReflectionTest {
             //指明方法名和方法参数类型
             Method method = stu.getDeclaredMethod("testPrivate",String.class);
             Class returnType = method.getReturnType();
-            ReflectionUtils.print("returnType:"+returnType.getName());
+            ReflectionUtils.print("returnType:" + returnType.getName());
 
             Class[] paraTypes= method.getParameterTypes();
             for(Class paraType : paraTypes){

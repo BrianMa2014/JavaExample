@@ -1,4 +1,4 @@
-package advanced.proxy.proxy;
+package advanced.proxy;
 
 /**
  * Created by mamingjiang on 2016/4/4.
@@ -6,7 +6,7 @@ package advanced.proxy.proxy;
 public class Main {
     public static void main(String[] args) throws Exception{
         Animal dog = new Dog();
-        Animal animal = (Animal)ProxyFactory.getProxy(dog);
+        Animal animal = (Animal) ProxyFactory.getProxy(dog);
         animal.run();
         animal.eat();
     }

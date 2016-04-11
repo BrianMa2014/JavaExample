@@ -1,4 +1,4 @@
-package base.reflection.reflection;
+package base.reflection;
 
 /**
  * Created by MaMingJiang on 2016/4/1.

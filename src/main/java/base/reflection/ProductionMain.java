@@ -1,4 +1,4 @@
-package base.reflection.reflection;
+package base.reflection;
 
 import org.testng.annotations.Test;
 

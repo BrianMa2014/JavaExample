@@ -1,6 +1,6 @@
-package advanced.proxy.proxy;
+package advanced.proxy;
 
-import base.reflection.reflection.ReflectionUtils;
+import base.reflection.ReflectionUtils;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

@@ -1,4 +1,4 @@
-package base.reflection.enumeration;
+package base.enumeration;
 
 /**
  * Created by MaMingJiang on 2016/4/8.

@@ -1,4 +1,4 @@
-package base.reflection.arraysorting;
+package base.arraysorting;
 
 /**
  * Created by MaMingJiang on 2016/4/6.

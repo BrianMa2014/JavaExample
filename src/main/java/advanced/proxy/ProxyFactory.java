@@ -1,4 +1,4 @@
-package advanced.proxy.proxy;
+package advanced.proxy;
 
 import java.lang.reflect.Proxy;
 
