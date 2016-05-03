@@ -1,4 +1,4 @@
-package base.java8;
+package advanced.lambda;
 
 /**
  * Created by MaMingJiang on 2016/5/3.

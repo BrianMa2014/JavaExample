@@ -1,4 +1,4 @@
-package base.java8;
+package advanced.lambda;
 
 import java.util.ArrayList;
 import java.util.List;

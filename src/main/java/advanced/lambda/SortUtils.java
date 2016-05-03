@@ -1,4 +1,4 @@
-package base.java8;
+package advanced.lambda;
 
 import java.util.Collections;
 import java.util.Comparator;
