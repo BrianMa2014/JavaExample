@@ -1,6 +1,5 @@
 package advanced.thread;
 
-
 import org.testng.annotations.Test;
 
 /**
