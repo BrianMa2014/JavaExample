@@ -18,5 +18,13 @@ public class StreamTestMain {
     nums.stream().filter(num -> num > 5).forEach(System.out::println);
     //map 根据规则转换
     nums.stream().map(num -> num+=2).forEach(System.out::println);
+
+    List<Student> students = new ArrayList<>();
+    Student stu1 = new Student("Brian",22);
+    Student stu2 = new Student("Django",21);
+    students.add(stu1);
+    students.add(stu2);
+
+    students.stream().filter(stu -> stu.getName().equals("Brian")).forEach(System.out::println);
     }
 }
