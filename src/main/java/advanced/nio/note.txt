@@ -1,0 +1,15 @@
+Channel - > Buffer -> Selector
+
+FileChannel
+DatagramChannel
+SocketChannel
+ServerSocketChannel
+
+Buffer
+  ByteBuffer
+  ShortBuffer
+  LongBuffer
+  IntBuffer
+  DoubleBuffer
+  FloatBuffer
+  CharBuffer
