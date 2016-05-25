@@ -9,5 +9,9 @@ Collection                Map
 since jdk 1.8  iterable 接口新增了forEach(Consumer<? super T> action)方法
  iterable是Collection的父接口,所以集合也可以使用forEach
 
-
+Collection 的stream方法将集合转换为Stream对象
  流式API  java8 Stream     聚集操作     中间方法(map)  末端方法(cout average sum)
+
+
+ Set  -   HashSet TreeSet EnumSet
+   HashSet按照hash算法来存储集合中的数据,具有良好的存取和查找性能
