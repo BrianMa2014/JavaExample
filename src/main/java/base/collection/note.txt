@@ -15,3 +15,4 @@ Collection 的stream方法将集合转换为Stream对象
 
  Set  -   HashSet TreeSet EnumSet
    HashSet按照hash算法来存储集合中的数据,具有良好的存取和查找性能
+   LinkedHashSet 以链表的维护元素的次序,使得元素以插入顺序保存
